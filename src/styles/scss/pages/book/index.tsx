@@ -1,9 +1,10 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {
     useParams, Redirect
 } from "react-router-dom";
 import {connectElem} from "../../../../reducers";
 import BookCardBig from "../../../../components/BookCardBig";
+import {updateTitleAction} from "../../../../actions/app";
 
 
 interface BookProps {
@@ -13,6 +14,7 @@ interface BookProps {
 
 function Book(props: BookProps) {
 
+    useEffect(()=>{props.dispatch(updateTitleAction('Book'));},[props.state.appReducer.title])
 
     let params: any = useParams();
 
