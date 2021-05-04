@@ -12,8 +12,8 @@ export function initAction(books: any) {
     if (rating == null) {
         rating = [];
         for (let book of books) {
-            book = {...book, rating: 0};
-            rating.push({id: book.id, rating: 0});
+            book = {...book, rating: {average: 0.0, rated: 0}};
+            rating.push({id: book.id, rating: {average: 0.0, rated: 0}});
         }
         //localStorage.setItem('rating',JSON.stringify(rating));
     } else {
@@ -43,7 +43,7 @@ export function initAction(books: any) {
             favorites.splice(i, 1)
         }
     }
-    for (i=0;i<books.length;++i) {
+    for (i = 0; i < books.length; ++i) {
         let r = rating.find((item: any, index: any) => {
             if (item.id === books[i].id) {
                 return true;
@@ -52,8 +52,8 @@ export function initAction(books: any) {
         if (r !== undefined) {
             books[i] = {...books[i], rating: r.rating};
         } else {
-            books[i] = {...books[i], rating: 0};
-            rating.push({id: books[i].id, rating: 0});
+            books[i] = {...books[i], rating: {average: 0.0, rated: 0}};
+            rating.push({id: books[i].id, rating: {average: 0.0, rated: 0}});
         }
         console.log(favorites)
         console.log(books[i])
@@ -61,7 +61,7 @@ export function initAction(books: any) {
             if (item === books[i].id) {
                 return true;
             }
-        })!==undefined) {
+        }) !== undefined) {
             books[i] = {...books[i], favorites: true};
         } else {
             books[i] = {...books[i], favorites: false};
@@ -75,79 +75,79 @@ export function initAction(books: any) {
 }
 
 
-export function ratingAction(bookID:number,rating:number)
-{
-    let r:any=localStorage.getItem('rating');
-    r=JSON.parse(r);
+export function ratingAction(bookID: number, rating: number) {
+    let r: any = localStorage.getItem('rating');
+    r = JSON.parse(r);
 
-    let rIndex=r.findIndex((item: any, index: any) => {
+    let rIndex = r.findIndex((item: any, index: any) => {
         if (item.id === bookID) {
             return true;
         }
     })
-    r[rIndex].rating+=rating;
+    r[rIndex].rating = {
+        average: (r[rIndex].rating.average * r[rIndex].rating.rated + rating) / (r[rIndex].rating.rated + 1)
+        ,
+        rated: r[rIndex].rating.rated + 1
+    };
 
-    let books=store.getState().bookReducer.books;
+    let books = store.getState().bookReducer.books;
 
-    rIndex=books.findIndex((item: any, index: any) => {
+    rIndex = books.findIndex((item: any, index: any) => {
         if (item.id === bookID) {
             return true;
         }
     })
-    books[rIndex].rating+=rating;
-    localStorage.setItem('rating',JSON.stringify(r));
+    books[rIndex].rating = {
+        average: (books[rIndex].rating.average * books[rIndex].rating.rated + rating) / (books[rIndex].rating.rated + 1)
+        ,
+        rated: books[rIndex].rating.rated + 1
+    };
+    localStorage.setItem('rating', JSON.stringify(r));
 
     return {type: "RATING", payload: {books: books}};
 
 }
 
-export function favoriteAction(bookID:number,favorite:boolean)
-
-{
-    let books=store.getState().bookReducer.books;
-    let FAV:any=localStorage.getItem('favorites');
-    FAV=JSON.parse(FAV);
+export function favoriteAction(bookID: number, favorite: boolean) {
+    let books = store.getState().bookReducer.books;
+    let FAV: any = localStorage.getItem('favorites');
+    FAV = JSON.parse(FAV);
     let ind;
 
-    if (favorite)
-    {
-        ind=FAV.findIndex((item: any, index: any) => {
+    if (favorite) {
+        ind = FAV.findIndex((item: any, index: any) => {
             if (item === bookID) {
                 return true;
             }
         })
-        if (ind==-1)
-        {
+        if (ind == -1) {
             FAV.push(bookID);
         }
 
-        ind=books.findIndex((item: any, index: any) => {
+        ind = books.findIndex((item: any, index: any) => {
             if (item.id === bookID) {
                 return true;
             }
         })
-        books[ind].favorites=true;
-    }
-    else
-    {
-        ind=FAV.findIndex((item: any, index: any) => {
+        books[ind].favorites = true;
+    } else {
+        ind = FAV.findIndex((item: any, index: any) => {
             if (item === bookID) {
                 return true;
             }
         })
-        if (ind>-1)
-        {
+        if (ind > -1) {
             FAV.splice(ind, 1);
         }
-        ind=books.findIndex((item: any, index: any) => {
+        ind = books.findIndex((item: any, index: any) => {
             if (item.id === bookID) {
                 return true;
             }
         })
-        books[ind].favorites=false;
+        books[ind].favorites = false;
     }
 
-    localStorage.setItem('favorites',JSON.stringify(FAV));
+    localStorage.setItem('favorites', JSON.stringify(FAV));
 
     return {type: "FAVORITE", payload: {books: books}};
 }

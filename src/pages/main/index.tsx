@@ -22,7 +22,7 @@ function Main(props:MainProps) {
 
         elArr.push(
             // @ts-ignore
-            <BookCard book={book}/>
+            <BookCard key={key} book={book}/>
         );
         key++;
     }

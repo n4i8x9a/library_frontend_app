@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import {connectElem} from "../../reducers";
-import {IconButton, Rating, RatingSize} from '@fluentui/react';
-import {favoriteAction, ratingAction} from "../../actions/book";
 import {Link} from "react-router-dom";
+import {IconButton, Rating, RatingSize} from "@fluentui/react";
+import {favoriteAction, ratingAction} from "../../actions/book";
 
 interface BookCardProps {
     book: any,
@@ -10,7 +10,7 @@ interface BookCardProps {
     dispatch: any
 }
 
-function BookCard(props: BookCardProps) {
+function BookCardBig(props: BookCardProps) {
     const [ratingDis, setRatingDis] = useState(true);
     const starIcon = () => {
         if (props.book.favorites) {
@@ -35,7 +35,7 @@ function BookCard(props: BookCardProps) {
     }
     return (
         <div className={'book_card'}>
-            <img src={'/data/pictures/' + props.book.picture} width={100} height={150}></img>
+            <img src={'/data/pictures/' + props.book.picture} width={200} height={300}></img>
             <div className={'book_info'}>
                 <Link to={`/books/${props.book.id}`}><h3>{props.book.title}</h3></Link>
                 <p><span className={'bold_text'}>{'author : '}</span>{props.book.author}</p>
@@ -87,6 +87,7 @@ function BookCard(props: BookCardProps) {
             />
         </div>
     )
-}
+};
 
-export default connectElem(BookCard);
+
+export default connectElem(BookCardBig);

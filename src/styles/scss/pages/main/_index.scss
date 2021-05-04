@@ -32,13 +32,30 @@ width:100%;
 }
 .book_info
 {
+  width:25%;
   margin:0 0 0 1%;
   p{
     margin: 0.5% auto;
+
   }
 }
 
 .bold_text
 {
   font-weight: bold;
+}
+
+.rating
+{
+
+  p{
+    margin: 0.5% auto;
+
+  }
+}
+.stars{
+  height:2.7em;
+  display: flex;
+  justify-content: left;
+  align-items: center;
 }

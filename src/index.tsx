@@ -12,6 +12,7 @@ import {createStore} from 'redux'
 import reducer from './reducers/index'
 import {favoriteAction, initAction, ratingAction} from "./actions/book";
 import {Provider} from 'react-redux'
+import Book from "./styles/scss/pages/book";
 
 initializeIcons();
 
@@ -28,7 +29,6 @@ async function getBooks() {
 
 getBooks().then(value => {
     store.dispatch(initAction(value.books));
-    store.dispatch(favoriteAction(1, true));
     console.log(store.getState());
 
 })
@@ -58,6 +58,12 @@ ReactDOM.render(
                             </Route>
                             <Route exact path="/favorites">
                                 <Favorites/>
+                            </Route>
+                            <Route exact path="/books/:id">
+                                <Book/>
+                            </Route>
+                            <Route exact path="/books">
+                                <Redirect to={'/'}/>
                             </Route>
 
                         </Switch>
