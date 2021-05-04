@@ -1,0 +1,44 @@
+@import 'node_modules/@fluentui/react/dist/sass/References';
+
+
+.main_page
+{
+  margin:0;
+width:100%;
+  height:100%;
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.cont
+{
+  margin:0 auto;
+  @include ms-depth-64;
+  width:100%;
+  height:75%;
+  overflow-y:scroll;
+  background: $ms-color-gray40;
+}
+
+.book_card
+{
+  display:flex;
+  margin: 0.5% 1%;
+  padding:1%;
+  width:95%;
+  justify-content: left;
+  background:$ms-color-sharedBlueMagenta10;
+}
+.book_info
+{
+  margin:0 0 0 1%;
+  p{
+    margin: 0.5% auto;
+  }
+}
+
+.bold_text
+{
+  font-weight: bold;
+}

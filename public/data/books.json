@@ -1,0 +1,22 @@
+{
+  "books": [
+    {
+      "id": 1,
+      "title": "1984",
+      "author": "George Orwell",
+      "publisher": "Secker & Warburg",
+      "year": 1949,
+      "description": "Big Brother is watching you!",
+      "picture": "1.jpeg"
+    },
+    {
+      "id": 2,
+      "title": "Fahrenheit 451",
+      "author": "Ray Bradbury",
+      "publisher": "Ballantine Books",
+      "year": 1953,
+      "description": "451",
+      "picture": "2.jpg"
+    }
+  ]
+}

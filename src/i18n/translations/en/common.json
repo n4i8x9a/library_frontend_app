@@ -1,0 +1,12 @@
+{
+  "mainPage":
+  {
+    "header": "Library"
+
+  },
+  "favoritesPage": {
+    "header":"Favorites"
+  },
+  "footer": "Created by @n4i8x9a\n2021"
+
+}
