@@ -12,7 +12,8 @@ import {createStore} from 'redux'
 import reducer from './reducers/index'
 import {favoriteAction, initAction, ratingAction} from "./actions/book";
 import {Provider} from 'react-redux'
-import Book from "./styles/scss/pages/book";
+import Book from "./pages/book";
+import {windowResizeAction} from "./actions/app";
 
 initializeIcons();
 
@@ -41,6 +42,11 @@ function setTitle() {
 }
 
 store.subscribe(setTitle);
+
+
+window.addEventListener(`resize`, event => {
+    store.dispatch(windowResizeAction());
+}, false);
 
 ReactDOM.render(
     <React.StrictMode>

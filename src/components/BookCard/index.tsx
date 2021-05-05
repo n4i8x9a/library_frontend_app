@@ -3,6 +3,7 @@ import {connectElem} from "../../reducers";
 import {IconButton, Rating, RatingSize} from '@fluentui/react';
 import {favoriteAction, ratingAction} from "../../actions/book";
 import {Link} from "react-router-dom";
+import RatingComponent from "../RatingComponent";
 
 interface BookCardProps {
     book: any,
@@ -38,55 +39,35 @@ function BookCard(props: BookCardProps) {
             <img src={'/data/pictures/' + props.book.picture} width={100} height={150}></img>
             <div className={'book_info'}>
                 <Link to={`/books/${props.book.id}`}><h3>{props.book.title}</h3></Link>
-                <p><span className={'bold_text'}>{'author : '}</span>{props.book.author}</p>
-                <p><span className={'bold_text'}>{'year : '}</span>{props.book.year}</p>
-                <p><span className={'bold_text'}>{'publisher : '}</span>{props.book.publisher}</p>
+                <p><span className={'bold_text'}>{'author : '}</span></p>
+                <p>{props.book.author}</p>
+                <p><span className={'bold_text'}>{'year : '}</span></p>
+                <p>{props.book.year}</p>
+                <p><span className={'bold_text'}>{'publisher : '}</span></p>
+                <p>{props.book.publisher}</p>
             </div>
-            <div className={'rating'} onMouseEnter={() => setRatingDis(false)}
-                 onMouseLeave={() => setRatingDis(true)}
-            >
-                <p><span className={'bold_text'}>{'rating : '}</span><span
-                    style={{color: ratColor(), fontWeight: 'bold'}}>{props.book.rating.average.toFixed(2)}</span></p>
-                <div className={'stars'}>
-                    {
-                        ratingDis ?
-                            <Rating
-                                readOnly
-                                rating={props.book.rating.average}
-                                allowZeroStars
-                                max={5}
-                                ariaLabel="Large stars"
-                                ariaLabelFormat="{0} of {1} stars"
-                            />
+            <div className={'rating'}>
+               <RatingComponent
+                   //@ts-ignore
+                   book={props.book}/>
 
-                            :
-                            <Rating
-                                allowZeroStars
-                                max={5}
-                                size={RatingSize.Large}
-                                ariaLabel="Large stars"
-                                ariaLabelFormat="{0} of {1} stars"
-                                onChange={(event: React.FormEvent<HTMLElement>, rating?: number) => {
-                                    if (event.type === 'focus') {
-                                        props.dispatch(ratingAction(props.book.id, Number(rating)))
-                                    }
-                                }}
-                            />
-                    }
-                </div>
-
-
-                <p><span className={'bold_text'}>{'rated : '}</span>{props.book.rating.rated}</p>
             </div>
-
+            <div className={'favorite_star'}>
             <IconButton iconProps={{iconName: starIcon()}}
+                        style={{zoom:"150%"}}
 
                         onClick={() => {
                             props.dispatch(favoriteAction(props.book.id, !props.book.favorites))
                         }}
             />
+            </div>
         </div>
     )
 }
 
 export default connectElem(BookCard);
+/*
+<p><span className={'bold_text'}>{'author : '}</span>{props.book.author}</p>
+                <p><span className={'bold_text'}>{'year : '}</span>{props.book.year}</p>
+                <p><span className={'bold_text'}>{'publisher : '}</span>{props.book.publisher}</p>
+ */

@@ -6,7 +6,7 @@
       "author": "George Orwell",
       "publisher": "Secker & Warburg",
       "year": 1949,
-      "description": "Big Brother is watching you!",
+      "description": "1984 is a dystopian novella by George Orwell published in 1949, which follows the life of Winston Smith, a low ranking member of ‘the Party’, who is frustrated by the omnipresent eyes of the party, and its ominous ruler Big Brother.\n\n‘Big Brother’ controls every aspect of people’s lives. It has invented the language ‘Newspeak’ in an attempt to completely eliminate political rebellion; created ‘Throughtcrimes’ to stop people even thinking of things considered rebellious. The party controls what people read, speak, say and do with the threat that if they disobey, they will be sent to the dreaded Room 101 as a looming punishment.\n\nOrwell effectively explores the themes of mass media control, government surveillance, totalitarianism and how a dictator can manipulate and control history, thoughts, and lives in such a way that no one can escape it.",
       "picture": "1.jpeg"
     },
     {
@@ -15,7 +15,7 @@
       "author": "Ray Bradbury",
       "publisher": "Ballantine Books",
       "year": 1953,
-      "description": "451",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris fringilla egestas facilisis. Nunc quis laoreet orci. Aenean mollis ultrices odio, et ornare ligula scelerisque et. Curabitur vulputate odio est, eget condimentum nisl laoreet vitae. Donec congue commodo mi, at tincidunt libero sodales eget. Praesent convallis elit et diam ullamcorper interdum vitae ut felis. Suspendisse ultricies risus a mauris sagittis laoreet. Mauris euismod felis et odio pretium, in convallis nunc condimentum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Pellentesque sed est rhoncus, luctus eros a, luctus justo. Fusce tristique pellentesque sem ut vestibulum. Nam quis fringilla est. Integer luctus nibh vel eros placerat volutpat. Aliquam nec leo massa. Duis arcu ligula, ultrices ut erat nec, tincidunt placerat purus. Curabitur diam lorem, viverra ut volutpat vitae, rutrum a tellus.\n\nUt tempus eros non lectus dictum, quis posuere augue laoreet. Morbi in urna lorem. Duis ultrices leo eu malesuada faucibus. Donec ut odio augue. Integer ultrices malesuada libero, ac mollis tortor ultricies volutpat. Vestibulum condimentum nisl nec odio porta, a ornare metus porttitor. Mauris vehicula, ipsum quis faucibus dignissim, elit mi dignissim justo, id tincidunt lacus diam at libero. Ut aliquet a lectus vitae interdum. Morbi sodales iaculis urna ornare sodales. Vivamus et magna nec magna venenatis viverra sed nec risus. Pellentesque vitae elementum nulla. Donec ultrices congue lobortis. Aliquam quis tempor velit. Proin at lacus facilisis, tincidunt sem sed, varius velit. Pellentesque ac venenatis ipsum.\n\nVivamus eget sagittis est. Nullam consectetur feugiat turpis ac vulputate. In velit nisl, viverra tristique dapibus a, molestie maximus elit. Morbi vitae urna id lacus sagittis lobortis id in nisi. Praesent malesuada orci in nunc dapibus fringilla. Donec id nibh a felis cursus pulvinar. In ultrices ornare leo ac venenatis. Vestibulum nec odio in nunc ultricies porta sit amet aliquam ex. Quisque nec orci velit. Cras id vestibulum ante. Sed sed lectus ut purus gravida faucibus et id odio. Nullam iaculis efficitur velit, quis pharetra justo tincidunt nec. Morbi venenatis condimentum purus, vitae molestie orci tristique maximus. Etiam sit amet malesuada odio, id pharetra mauris. Mauris id venenatis magna.\n\nEtiam porta neque eu arcu tincidunt, ut lobortis metus fringilla. Nullam nec eros nulla. Mauris ac lacus ac nibh elementum feugiat. Curabitur vel ligula vitae augue tincidunt dignissim a non dolor. Pellentesque vitae erat mattis, auctor est accumsan, volutpat risus. Sed at tincidunt felis, non aliquam eros. Phasellus pretium sollicitudin congue. Donec malesuada suscipit interdum. Sed ac pellentesque tortor, vel pretium elit. Aliquam ut lacus non justo feugiat consequat eget ac purus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Cras ut felis non velit aliquam ultrices. Aenean eu justo in sem ultricies finibus id eu magna. Nunc convallis dignissim pellentesque. Donec sed turpis venenatis, ultrices magna eu, mattis mauris. Nam vitae quam erat.\n\nCras pulvinar est massa, vel commodo nibh aliquam in. Sed et massa vel leo placerat vulputate a a elit. Aliquam ut lorem arcu. Etiam pellentesque massa commodo est pulvinar, et eleifend libero hendrerit. Mauris diam odio, dictum sed est eget, ultrices consectetur est. Aliquam elementum, nibh et iaculis scelerisque, neque dui lobortis mauris, a scelerisque metus felis vitae quam. Aenean rhoncus elementum nisi, et ultrices leo vulputate eget. Praesent pharetra, arcu eget pretium cursus, tellus felis ornare eros, et euismod nisl quam nec lectus.",
       "picture": "2.jpg"
     },
     {
@@ -66,6 +66,15 @@
     {
       "id": 8,
       "title": "Fahrenheit 451",
+      "author": "Ray Bradbury",
+      "publisher": "Ballantine Books",
+      "year": 1953,
+      "description": "451",
+      "picture": "2.jpg"
+    },
+    {
+      "id": 9,
+      "title": " Fahrenheit 451 Fahrenheit 451 Fahrenheit 451",
       "author": "Ray Bradbury",
       "publisher": "Ballantine Books",
       "year": 1953,

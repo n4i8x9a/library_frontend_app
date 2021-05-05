@@ -12,8 +12,8 @@ export function initAction(books: any) {
     if (rating == null) {
         rating = [];
         for (let book of books) {
-            book = {...book, rating: {average: 0.0, rated: 0}};
-            rating.push({id: book.id, rating: {average: 0.0, rated: 0}});
+            book = {...book, rating: 0};
+            rating.push({id: book.id, rating: 0});
         }
         //localStorage.setItem('rating',JSON.stringify(rating));
     } else {
@@ -52,8 +52,8 @@ export function initAction(books: any) {
         if (r !== undefined) {
             books[i] = {...books[i], rating: r.rating};
         } else {
-            books[i] = {...books[i], rating: {average: 0.0, rated: 0}};
-            rating.push({id: books[i].id, rating: {average: 0.0, rated: 0}});
+            books[i] = {...books[i], rating: 0};
+            rating.push({id: books[i].id, rating: 0});
         }
         console.log(favorites)
         console.log(books[i])
@@ -84,11 +84,7 @@ export function ratingAction(bookID: number, rating: number) {
             return true;
         }
     })
-    r[rIndex].rating = {
-        average: (r[rIndex].rating.average * r[rIndex].rating.rated + rating) / (r[rIndex].rating.rated + 1)
-        ,
-        rated: r[rIndex].rating.rated + 1
-    };
+    r[rIndex].rating +=rating;
 
     let books = store.getState().bookReducer.books;
 
@@ -97,11 +93,7 @@ export function ratingAction(bookID: number, rating: number) {
             return true;
         }
     })
-    books[rIndex].rating = {
-        average: (books[rIndex].rating.average * books[rIndex].rating.rated + rating) / (books[rIndex].rating.rated + 1)
-        ,
-        rated: books[rIndex].rating.rated + 1
-    };
+    books[rIndex].rating +=rating;
     localStorage.setItem('rating', JSON.stringify(r));
 
     return {type: "RATING", payload: {books: books}};
@@ -120,7 +112,7 @@ export function favoriteAction(bookID: number, favorite: boolean) {
                 return true;
             }
         })
-        if (ind == -1) {
+        if (ind === -1) {
             FAV.push(bookID);
         }
 

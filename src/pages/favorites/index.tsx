@@ -3,6 +3,7 @@ import {connectElem} from "../../reducers";
 import {updateTitleAction} from "../../actions/app";
 import {useTranslation} from "react-i18next";
 import BookCard from "../../components/BookCard";
+import Books from "../../components/Books";
 
 interface FavoritesProps {
     state: any,
@@ -16,30 +17,22 @@ function Favorites(props: FavoritesProps) {
         props.dispatch(updateTitleAction(t('favoritesPage.header')));
     }, [props.state.appReducer.title])
 
-    let elArr = [];
-    let key = 1;
+    let booksArr = [];
+
     for (let book of props.state.bookReducer.books) {
         if (book.favorites) {
-            elArr.push(
-                // @ts-ignore
-                <BookCard key={key} book={book}/>
+            booksArr.push(
+                book
             );
-            key++;
+
         }
     }
 
     return (
-        <>
-            <div className={'main_page'}>
-                <div></div>
-                <div className={'cont'}>
-                    {elArr}
-
-                </div>
-
-
-            </div>
-        </>
+        <Books
+        //@ts-ignore
+            books={booksArr}
+        />
     );
 
 }
