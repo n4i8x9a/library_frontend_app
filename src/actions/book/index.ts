@@ -53,8 +53,7 @@ export function initAction(books: any) {
             books[i] = {...books[i], rating: 0};
             rating.push({id: books[i].id, rating: 0});
         }
-        console.log(favorites)
-        console.log(books[i])
+
         if (favorites.find((item: any, index: any) => {
             if (item === books[i].id) {
                 return true;
