@@ -4,6 +4,7 @@ import {IconButton, Rating, RatingSize} from '@fluentui/react';
 import {favoriteAction, ratingAction} from "../../actions/book";
 import {Link} from "react-router-dom";
 import RatingComponent from "../RatingComponent";
+import {useTranslation} from "react-i18next";
 
 interface BookCardProps {
     book: any,
@@ -12,6 +13,8 @@ interface BookCardProps {
 }
 
 function BookCard(props: BookCardProps) {
+    const {t, i18n} = useTranslation('common');
+
     const [ratingDis, setRatingDis] = useState(true);
     const starIcon = () => {
         if (props.book.favorites) {
@@ -34,16 +37,17 @@ function BookCard(props: BookCardProps) {
 
         }
     }
+    const linkStyle={color:"rgb(0, 120, 212)",textDecoration:"none"}
     return (
         <div className={'book_card'}>
             <img src={'/data/pictures/' + props.book.picture} width={100} height={150}></img>
             <div className={'book_info'}>
-                <Link to={`/books/${props.book.id}`}><h3>{props.book.title}</h3></Link>
-                <p><span className={'bold_text'}>{'author : '}</span></p>
+                <Link style={linkStyle} to={`/books/${props.book.id}`}><h3>{props.book.title}</h3></Link>
+                <p><span className={'bold_text'}>{t('mainPage.author')}</span></p>
                 <p>{props.book.author}</p>
-                <p><span className={'bold_text'}>{'year : '}</span></p>
+                <p><span className={'bold_text'}>{t('mainPage.year')}</span></p>
                 <p>{props.book.year}</p>
-                <p><span className={'bold_text'}>{'publisher : '}</span></p>
+                <p><span className={'bold_text'}>{t('mainPage.publisher')}</span></p>
                 <p>{props.book.publisher}</p>
             </div>
             <div className={'rating'}>
@@ -66,8 +70,3 @@ function BookCard(props: BookCardProps) {
 }
 
 export default connectElem(BookCard);
-/*
-<p><span className={'bold_text'}>{'author : '}</span>{props.book.author}</p>
-                <p><span className={'bold_text'}>{'year : '}</span>{props.book.year}</p>
-                <p><span className={'bold_text'}>{'publisher : '}</span>{props.book.publisher}</p>
- */

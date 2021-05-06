@@ -4,7 +4,8 @@ import {
 } from "react-router-dom";
 import {connectElem} from "../../reducers";
 import BookCardBig from "../../components/BookCardBig";
-import {updateTitleAction} from "../../actions/app";
+import {searchButtonShowAction, updateHeaderTextAction, updateTitleAction} from "../../actions/app";
+import {useTranslation} from "react-i18next";
 
 
 interface BookProps {
@@ -14,27 +15,34 @@ interface BookProps {
 
 function Book(props: BookProps) {
 
-    useEffect(()=>{props.dispatch(updateTitleAction('Book'));},[props.state.appReducer.title])
-
+    const {t, i18n} = useTranslation('common');
     let params: any = useParams();
 
 
-    let book:any = props.state.bookReducer.books.find((item: any, index: any) => {
-        if (item.id === Number(params.id) ){
+    let book: any = props.state.bookReducer.books.find((item: any, index: any) => {
+        if (item.id === Number(params.id)) {
             return true;
         }
     });
+    useEffect(() => {
+        props.dispatch(updateTitleAction('bookPage.header'));
+        props.dispatch(updateHeaderTextAction('bookPage.header'));
+        props.dispatch(searchButtonShowAction(false))
 
+    }, [props.state.appReducer.title,
+
+        props.state.appReducer.headerText,book])
     if (book === undefined) {
-        return <div>No</div>
+
+        return <div>{t('bookPage.notFound')}</div>
     } else {
         return (
-        <>
-           <BookCardBig
-               // @ts-ignore
+            <>
+                <BookCardBig
+                    // @ts-ignore
 
-               book={book}/>
-       </>
+                    book={book}/>
+            </>
         );
     }
 }

@@ -14,12 +14,14 @@ import {favoriteAction, initAction, ratingAction} from "./actions/book";
 import {Provider} from 'react-redux'
 import Book from "./pages/book";
 import {windowResizeAction} from "./actions/app";
+import i18next from "i18next";
 
 initializeIcons();
-
+i18next
+    .init({defaultNS:"common"})
+.then();
 
 export const store = createStore(reducer)
-console.log(store.getState());
 
 async function getBooks() {
     let req = await fetch('/data/books.json');
@@ -30,19 +32,19 @@ async function getBooks() {
 
 getBooks().then(value => {
     store.dispatch(initAction(value.books));
-    console.log(store.getState());
 
 })
 
 
 function setTitle() {
     if (document.title !== store.getState().appReducer.title) {
-        document.title = store.getState().appReducer.title;
+        document.title = i18next.t(store.getState().appReducer.title);
     }
 }
 
-store.subscribe(setTitle);
 
+
+store.subscribe(setTitle);
 
 window.addEventListener(`resize`, event => {
     store.dispatch(windowResizeAction());
@@ -74,7 +76,12 @@ ReactDOM.render(
 
                         </Switch>
                     </div>
-                    <Footer/>
+                    {
+                        /*
+                        <Footer/>
+
+                         */
+                    }
                 </Router>
             </>
         </Provider>

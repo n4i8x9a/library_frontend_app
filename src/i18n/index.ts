@@ -7,16 +7,30 @@ const resources = {
     en: {
         common: common_en
     },
+
     ru: {
         common: common_ru
     }
+
+
 };
 
+const Languages = [
+
+     'ru',
+     'en'
+
+];
+var userLang = navigator.language.split('-')[0];
+if (!Languages.includes(userLang))
+{
+    userLang='en';
+}
 i18n
     .use(initReactI18next)
     .init({
         resources,
-        lng: "en",
+        lng: userLang,
 
 
         interpolation: {

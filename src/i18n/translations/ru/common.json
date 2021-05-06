@@ -1,11 +1,31 @@
 {
   "mainPage":
   {
-    "header": "Library"
+    "header": "Библиотека",
+    "author": "автор : ",
+    "year": "год : ",
+    "publisher": "издательство : ",
+    "az": "А-Я",
+    "za": "Я-А",
+    "asc": "По возрастанию",
+    "desc": "По убыванию",
+    "search": "Поиск",
+    "authorsPhilter": "Выберите авторов",
+    "publishersPhilter": "Выберите издательства",
+    "yearsPhilter": "Выберите годы",
+    "titleSort": "Название",
+    "yearsSort": "Год",
+    "ratingSort": "Рейтинг"
+
+  },
+  "bookPage": {
+    "header": "Книга",
+    "download": "Скачать",
+    "notFound": "Книга не найдена"
 
   },
   "favoritesPage": {
-    "header":"Library"
+    "header":"Избранное"
   },
   "footer": "Created by @n4i8x9a\n2021"
 

@@ -28,7 +28,7 @@ body
   align-items: center;
   flex-direction: column;
   padding:0;
-  height:90%;
+  height:88%;
   margin:0;
 }
 
@@ -66,12 +66,15 @@ h2,p,h1,h3,h4,h5,h6
 .book_card_big
 {
   margin:0;
+  /*
   @include ms-depth-64;
+
+   */
   display:flex;
   background:white;
   justify-content: space-between;
   width:98%;
-  height:90%;
+  height:100%;
   padding:1%;
   overflow-y:auto;
   @media (max-width:800px) {

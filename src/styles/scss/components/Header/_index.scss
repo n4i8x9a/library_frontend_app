@@ -4,7 +4,10 @@
 
   background:white;
   margin: 0 auto;
-  height:3em;
+  /*
+  height:10%;
+   */
+  height:min-content;
   padding-left: 2%;
   padding-right:2%;
   display:flex;
@@ -25,5 +28,6 @@
 {
   display:flex;
   justify-content: space-between;
-  width:4em;
+  width: 9em;
+  align-items: center;
 }

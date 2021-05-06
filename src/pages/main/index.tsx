@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {connectElem} from "../../reducers";
-import {updateTitleAction} from "../../actions/app";
+import {searchButtonShowAction, updateHeaderTextAction, updateTitleAction} from "../../actions/app";
 import {useTranslation} from "react-i18next";
 import BookCard from "../../components/BookCard";
 import {SearchBox} from '@fluentui/react/lib/SearchBox';
@@ -17,8 +17,15 @@ function Main(props: MainProps) {
     const {t, i18n} = useTranslation('common');
 
     useEffect(() => {
-        props.dispatch(updateTitleAction(t('mainPage.header')));
-    }, [props.state.appReducer.title])
+        props.dispatch(updateTitleAction('mainPage.header'));
+        props.dispatch(updateHeaderTextAction('mainPage.header'));
+
+        if (props.state.appReducer.isMobile)
+        {
+            props.dispatch(searchButtonShowAction(true));
+        }
+
+    }, [props.state.appReducer.title,props.state.appReducer.headerText])
 
 
     return <Books
