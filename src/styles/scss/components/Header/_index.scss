@@ -1,32 +1,27 @@
-.header
+.header {
 
-{
-
-  background:white;
+  background: white;
   margin: 0 auto;
-  /*
-  height:10%;
-   */
-  height:min-content;
+
+  height: min-content;
   padding-left: 2%;
-  padding-right:2%;
-  display:flex;
-  justify-content:space-between;
+  padding-right: 2%;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  border-bottom:2px solid $ms-color-gray40;
-  h2
-  {
+  border-bottom: 2px solid $ms-color-gray40;
+
+  h2 {
     font-family: 'Segoe UI';
   }
 
-  p{
+  p {
     font-family: 'Segoe UI';
   }
 }
 
-.navigation
-{
-  display:flex;
+.navigation {
+  display: flex;
   justify-content: space-between;
   width: 9em;
   align-items: center;

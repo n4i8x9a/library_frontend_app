@@ -5,7 +5,6 @@ export function initAction(books: any) {
     let rating: any = localStorage.getItem('rating');
     if (favorites == null) {
         favorites = [];
-        //localStorage.setItem('favorites',JSON.stringify(favorites));
     } else {
         favorites = JSON.parse(favorites)
     }
@@ -15,7 +14,6 @@ export function initAction(books: any) {
             book = {...book, rating: 0};
             rating.push({id: book.id, rating: 0});
         }
-        //localStorage.setItem('rating',JSON.stringify(rating));
     } else {
         rating = JSON.parse(rating)
     }
@@ -84,7 +82,7 @@ export function ratingAction(bookID: number, rating: number) {
             return true;
         }
     })
-    r[rIndex].rating +=rating;
+    r[rIndex].rating += rating;
 
     let books = store.getState().bookReducer.books;
 
@@ -93,7 +91,7 @@ export function ratingAction(bookID: number, rating: number) {
             return true;
         }
     })
-    books[rIndex].rating +=rating;
+    books[rIndex].rating += rating;
     localStorage.setItem('rating', JSON.stringify(r));
 
     return {type: "RATING", payload: {books: books}};

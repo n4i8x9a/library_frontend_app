@@ -2,7 +2,6 @@ import React, {useEffect} from 'react';
 import {connectElem} from "../../reducers";
 import {searchButtonShowAction, updateHeaderTextAction, updateTitleAction} from "../../actions/app";
 import {useTranslation} from "react-i18next";
-import BookCard from "../../components/BookCard";
 import Books from "../../components/Books";
 
 interface FavoritesProps {
@@ -16,11 +15,10 @@ function Favorites(props: FavoritesProps) {
     useEffect(() => {
         props.dispatch(updateTitleAction('favoritesPage.header'));
         props.dispatch(updateHeaderTextAction('favoritesPage.header'));
-        if (props.state.appReducer.isMobile)
-        {
+        if (props.state.appReducer.isMobile) {
             props.dispatch(searchButtonShowAction(true));
         }
-    }, [props.state.appReducer.title,props.state.appReducer.headerText])
+    }, [props.state.appReducer.title, props.state.appReducer.headerText])
 
     let booksArr = [];
 
@@ -35,7 +33,7 @@ function Favorites(props: FavoritesProps) {
 
     return (
         <Books
-        //@ts-ignore
+            //@ts-ignore
             books={booksArr}
         />
     );

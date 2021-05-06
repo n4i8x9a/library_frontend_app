@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import {connectElem} from "../../reducers";
-//import {Link} from "react-router-dom";
-import {Link,IconButton, Rating, RatingSize} from "@fluentui/react";
+import {Link, IconButton, Rating, RatingSize} from "@fluentui/react";
 import {favoriteAction, ratingAction} from "../../actions/book";
 import RatingComponent from "../RatingComponent";
 import {useTranslation} from "react-i18next";
@@ -24,15 +23,13 @@ function BookCardBig(props: BookCardProps) {
     }
 
 
-
-
     return <div className={'book_card_big'}>
 
         <div className={'book_info_big'}>
             <img src={'/data/pictures/' + props.book.picture} width={160} height={240}></img>
             <div className={'text_info'}>
 
-            <h2>{props.book.title}</h2>
+                <h2>{props.book.title}</h2>
 
                 <p><span className={'bold_text'}>{t('mainPage.author')}</span></p>
                 <p>{props.book.author}</p>
@@ -49,13 +46,13 @@ function BookCardBig(props: BookCardProps) {
 
                 </div>
 
-                <IconButton style={{zoom:"150%"}} iconProps={{iconName: starIcon()}}
+                <IconButton style={{zoom: "150%"}} iconProps={{iconName: starIcon()}}
 
                             onClick={() => {
                                 props.dispatch(favoriteAction(props.book.id, !props.book.favorites))
                             }}
                 />
-                <Link  href={props.book.file}>{t('bookPage.download')}</Link>
+                <Link href={props.book.file}>{t('bookPage.download')}</Link>
             </div>
         </div>
 
@@ -64,8 +61,6 @@ function BookCardBig(props: BookCardProps) {
         </div>
     </div>
 };
-
-
 
 
 export default connectElem(BookCardBig);

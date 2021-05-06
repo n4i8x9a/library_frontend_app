@@ -2,14 +2,12 @@ import React, {useEffect, useState} from 'react';
 import {connectElem} from "../../reducers";
 import {isMobile, isTablet} from "react-device-detect";
 import {Dropdown, IDropdownOption, IDropdownStyles} from "@fluentui/react/lib/Dropdown";
-import {DefaultButton} from "@fluentui/react";
-import {Icon} from "@fluentui/react/lib/Icon";
+
 import {Panel} from "@fluentui/react/lib/Panel";
 import {useTranslation} from "react-i18next";
 import {useBoolean} from "@fluentui/react-hooks";
 import {SearchBox, ISearchBoxStyles} from '@fluentui/react/lib/SearchBox';
 import {searchButtonValueAction} from "../../actions/app";
-
 
 
 interface searchProps {

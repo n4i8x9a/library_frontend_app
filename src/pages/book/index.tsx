@@ -31,16 +31,15 @@ function Book(props: BookProps) {
 
     }, [props.state.appReducer.title,
 
-        props.state.appReducer.headerText,book])
+        props.state.appReducer.headerText, book])
     if (book === undefined) {
 
-        return <div>{t('bookPage.notFound')}</div>
+        return <div><h3>{t('bookPage.notFound')}</h3></div>
     } else {
         return (
             <>
                 <BookCardBig
                     // @ts-ignore
-
                     book={book}/>
             </>
         );

@@ -1,49 +1,42 @@
 import React from 'react';
 import {connectElem} from "../../reducers";
-import {Button,IconButton} from "@fluentui/react";
+import {Button, IconButton} from "@fluentui/react";
 import {ratingAction} from "../../actions/book";
 
 
-interface RatingComponentProps
-{
+interface RatingComponentProps {
     state: any,
     dispatch: any,
-    book:any
+    book: any
 }
 
-function RatingComponent(props:RatingComponentProps)
-
-
-
-{
-    let color= props.book.rating>0 ?'green' :'red' ;
+function RatingComponent(props: RatingComponentProps) {
+    let color = props.book.rating > 0 ? '#107c10' : '#a80000';
     return <div className={'rating_component'}>
 
 
-
         <IconButton
-            iconProps={{iconName:"SkypeCircleMinus"}}
+            iconProps={{iconName: "SkypeCircleMinus"}}
 
-            onClick={()=>{
+            onClick={() => {
 
-                props.dispatch(ratingAction(props.book.id,-1));
+                props.dispatch(ratingAction(props.book.id, -1));
             }}
 
 
         />
-        <p style={{color:color}}>{props.book.rating}</p>
+        <p style={{color: color}}>{props.book.rating}</p>
         <IconButton
-            iconProps={{iconName:"CirclePlus"}}
-            onClick={()=>{
+            iconProps={{iconName: "CirclePlus"}}
+            onClick={() => {
 
-                props.dispatch(ratingAction(props.book.id,1));
+                props.dispatch(ratingAction(props.book.id, 1));
             }}
 
 
         />
     </div>
 }
-
 
 
 export default connectElem(RatingComponent);

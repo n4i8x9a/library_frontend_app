@@ -5,7 +5,6 @@ import {BrowserRouter as Router, Route, Switch, Redirect} from "react-router-dom
 import Main from "./pages/main";
 import Favorites from "./pages/favorites";
 import './i18n/index'
-import Footer from "./components/Footer";
 import Header from "./components/Header";
 import {initializeIcons} from '@fluentui/font-icons-mdl2';
 import {createStore} from 'redux'
@@ -18,8 +17,8 @@ import i18next from "i18next";
 
 initializeIcons();
 i18next
-    .init({defaultNS:"common"})
-.then();
+    .init({defaultNS: "common"})
+    .then();
 
 export const store = createStore(reducer)
 
@@ -41,7 +40,6 @@ function setTitle() {
         document.title = i18next.t(store.getState().appReducer.title);
     }
 }
-
 
 
 store.subscribe(setTitle);
@@ -76,12 +74,7 @@ ReactDOM.render(
 
                         </Switch>
                     </div>
-                    {
-                        /*
-                        <Footer/>
 
-                         */
-                    }
                 </Router>
             </>
         </Provider>

@@ -15,7 +15,6 @@ interface BookCardProps {
 function BookCard(props: BookCardProps) {
     const {t, i18n} = useTranslation('common');
 
-    const [ratingDis, setRatingDis] = useState(true);
     const starIcon = () => {
         if (props.book.favorites) {
             return 'FavoriteStarFill'
@@ -23,21 +22,8 @@ function BookCard(props: BookCardProps) {
             return 'FavoriteStar';
         }
     }
-    const ratColor = () => {
-        if (props.book.rating.average < 3) {
-            return '#c50f1f';
 
-        }
-        if (props.book.rating.average < 4) {
-            return '#ffaa44';
-
-        }
-        if (props.book.rating.average <= 5) {
-            return '#6bb700';
-
-        }
-    }
-    const linkStyle={color:"rgb(0, 120, 212)",textDecoration:"none"}
+    const linkStyle = {color: "rgb(0, 120, 212)", textDecoration: "none"}
     return (
         <div className={'book_card'}>
             <img src={'/data/pictures/' + props.book.picture} width={100} height={150}></img>
@@ -51,19 +37,19 @@ function BookCard(props: BookCardProps) {
                 <p>{props.book.publisher}</p>
             </div>
             <div className={'rating'}>
-               <RatingComponent
-                   //@ts-ignore
-                   book={props.book}/>
+                <RatingComponent
+                    //@ts-ignore
+                    book={props.book}/>
 
             </div>
             <div className={'favorite_star'}>
-            <IconButton iconProps={{iconName: starIcon()}}
-                        style={{zoom:"150%"}}
+                <IconButton iconProps={{iconName: starIcon()}}
+                            style={{zoom: "150%"}}
 
-                        onClick={() => {
-                            props.dispatch(favoriteAction(props.book.id, !props.book.favorites))
-                        }}
-            />
+                            onClick={() => {
+                                props.dispatch(favoriteAction(props.book.id, !props.book.favorites))
+                            }}
+                />
             </div>
         </div>
     )
